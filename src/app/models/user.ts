@@ -20,6 +20,9 @@ export class User {
         this.email = email;
         this.photo = photo;
         this.password = password;
+        
 
     }
 }
+
+

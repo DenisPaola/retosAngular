@@ -1,0 +1,27 @@
+<div class="container-books" *ngIf="arrayBooks.length > 0">
+    <div class="card" *ngFor="let book of arrayBooks; let index= index">
+        <!--<div *ngIf="index % 3 === 0">-->
+            <div class="photo"><img src="{{book.photo}}"></div>
+            <div class="other-text">{{book.type}}</div>
+            <div class="line"></div>
+            <div class="title">{{book.title}}</div>
+            <div class="other-text">Autor: {{book.author}}</div>
+            <div class="other-text">Ref: {{book | bookId}}</div>
+            <div class="price">{{book.price}}€</div>
+            <button [ngClass]="{even: index%2===0, odd: index%2 !== 0}">Comprar</button>
+       <!-- </div> -->
+    </div>
+</div>
+<div *ngIf="arrayBooks.length === 0">No hay libros</div>
+<div>
+    <form class="form_books">
+        <h2>Registrate</h2>
+        <input class="controls" type="number" name="idbook" id="idbook" placeholder="Id book" class="campo" #idbook>
+        <input class="controls" type="text" name="title" id="title" placeholder="Title" class="campo" #title>
+        <input class="controls" type="text" name="type" id="type" placeholder="Type" class="campo" #type>
+        <input class="controls" type="text" name="author" id="author" placeholder="Author" class="campo" #author>
+        <input class="controls" type="number" name="price" id="price" placeholder="Price" class="campo" #price>
+        <input class="controls" type="text" name="photo" id="photo" placeholder="Photo" class="campo" #photo>
+        <input class="btn-add-book" type="button" value="Add Book"(click)="newBook(idbook, title, type, author, price, photo)">
+    </form>
+</div>
