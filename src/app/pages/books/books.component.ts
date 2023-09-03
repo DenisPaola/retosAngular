@@ -36,4 +36,19 @@ export class BooksComponent {
       parseFloat(price.value),
       photo.value));
   }
+
+  removeBook(bookId: number){
+    debugger;
+    let pos = -1;
+    this.arrayBooks.forEach((book, index) => {
+      if(book.id_book === bookId){
+        pos = index;
+      }
+    });
+
+    debugger;
+    if(pos !== -1){
+      this.arrayBooks.splice(pos, 1);
+    }
+  }
 }
