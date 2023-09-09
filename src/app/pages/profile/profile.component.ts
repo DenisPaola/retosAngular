@@ -15,7 +15,7 @@ export class ProfileComponent {
 
 
   modificar(nombre: HTMLInputElement, apellido: HTMLInputElement, correo:HTMLInputElement, url: HTMLInputElement){
-    debugger;
+    
     this.user = new User(0, nombre.value, apellido.value, correo.value, url.value,'');
 
     console.log(this.user.name);
