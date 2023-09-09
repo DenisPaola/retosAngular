@@ -1,19 +1,11 @@
 <div *ngIf="arrayBooks.length === 0">No hay libros</div>
 
-<div class="container-books" *ngIf="arrayBooks.length > 0">
-    <app-card *ngFor="let book of arrayBooks; let index= index" [book]="book" [index]="index" (eventRemoveBook)="removeBook($event)"></app-card>
+<div class="container d-flex justify-content-center">
+    <div class="input-group input-group-sm mb-3 custom-input-group">
+      <input class="form-control" type="text" placeholder="Buscar por ID de libro" (input)="onSearchInput()" style="padding: 0.5rem;">
+    </div>
 </div>
 
-<div>
-    <form class="form_books">
-        <h2>Registrate</h2>
-        <input class="controls" type="number" name="idbook" id="idbook" placeholder="Id book" class="campo" #idbook>
-        <input class="controls" type="text" name="title" id="title" placeholder="Title" class="campo" #title>
-        <input class="controls" type="text" name="type" id="type" placeholder="Type" class="campo" #type>
-        <input class="controls" type="text" name="author" id="author" placeholder="Author" class="campo" #author>
-        <input class="controls" type="number" name="price" id="price" placeholder="Price" class="campo" #price>
-        <input class="controls" type="text" name="photo" id="photo" placeholder="Photo" class="campo" #photo>
-        <input class="btn-add-book" type="button" value="Add Book"
-            (click)="newBook(idbook, title, type, author, price, photo)">
-    </form>
+<div class="container-books" *ngIf="arrayBooks.length > 0">
+    <app-card *ngFor="let book of arrayBooks; let index= index" [book]="book" [index]="index" (eventRemoveBook)="removeBook($event)"></app-card>
 </div>

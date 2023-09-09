@@ -19,7 +19,6 @@ export class CardComponent {
   }
 
   eliminarBook(id_book: number) {
-    debugger;
     this.eventRemoveBook.emit(id_book);
   }
 }
