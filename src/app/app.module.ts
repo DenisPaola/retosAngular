@@ -16,8 +16,11 @@ import { BookIdPipe } from './book-id.pipe';
 import { CardComponent } from './component/card/card.component';
 import { AddBookComponent } from './pages/add-book/add-book.component';
 import { UpdateBookComponent } from './pages/update-book/update-book.component';
-
-
+import { LoginComponent } from './pages/login/login.component';
+import { FormLoginComponent } from './component/form-login/form-login.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,9 @@ import { UpdateBookComponent } from './pages/update-book/update-book.component';
     BookIdPipe,
     CardComponent,
     AddBookComponent,
-    UpdateBookComponent
+    UpdateBookComponent,
+    LoginComponent,
+    FormLoginComponent
 
 
   ],
@@ -40,7 +45,10 @@ import { UpdateBookComponent } from './pages/update-book/update-book.component';
     BrowserModule,
     CommonModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
