@@ -1,10 +1,42 @@
-<body>
-<form class="form_registro">
-    <h2>Registrate</h2>
-    <input class="controls" type="text" name="nombre" id="nombre" placeholder="Nombre" class="campo">
-    <input class="controls" type="text" name="apellido" id="apellido" placeholder="Apellido" class="campo">
-    <input class="controls" type="text" name="correo" id="correo" placeholder="Correo" class="campo">
-    <input class="controls" type="text" name="contraseña" id="contraseña" placeholder="Contraseña" class="campo">
-    <input class="btn-registrarse" type="button" value="registrarse" onclick="registrarse()">
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="name">Nombre</label>
+        <input type="text" id="name" class="form-control" formControlName="name" required>
+        <div *ngIf="registerForm.get('name')?.hasError('required')" class="text-danger">
+            El nombre es obligatorio.
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" class="form-control" formControlName="email" required email>
+        <div *ngIf="registerForm.get('email')?.hasError('required')" class="text-danger">
+             El correo es obligatorio.
+        </div>
+        <div *ngIf="registerForm.get('email')?.hasError('email')" class="text-danger">
+            El correo no es correcto.
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" class="form-control" formControlName="password" required>
+        <div *ngIf="registerForm.get('password')?.hasError('required')" class="text-danger">
+             La contraseña es obligatoria.
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="confirmPassword">Confirmar Contraseña</label>
+        <input type="password" id="confirmPassword" class="form-control" formControlName="confirmPassword" required>
+        <div *ngIf="registerForm.get('confirmPassword')?.hasError('required')" class="text-danger">
+            Debes confirmar la contraseña.
+        </div>
+        <div *ngIf="registerForm.get('confirmPassword')?.hasError('passwrodNoIgual')" class="text-danger">
+            Las contraseñas no coinciden.
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid">Registrarse</button>
+
 </form>
-</body>
