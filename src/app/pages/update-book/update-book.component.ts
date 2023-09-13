@@ -24,12 +24,6 @@ export class UpdateBookComponent {
       book.price = parseInt(price.value)
       book.photo = photo.value
 
-      this.booksService.edit(book);
-      this.bookUpdated = true;
-    }
-    else{
-      this.bookNoFinded = true
-
       this.bookUpdated = this.booksService.edit(book);
       if(this.bookUpdated){
         this.toastr.success('Libro actualizado correctamente');
